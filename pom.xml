@@ -184,8 +184,20 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombokVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--ehcache-->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcacheCoreVersion}</version>
+        </dependency>
         <!--slf4j日志-->
-
     </dependencies>
     <build>
         <resources>

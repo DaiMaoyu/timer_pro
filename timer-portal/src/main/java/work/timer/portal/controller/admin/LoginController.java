@@ -2,10 +2,10 @@ package work.timer.portal.controller.admin;
 
 
 import com.google.code.kaptcha.Producer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +18,7 @@ import java.awt.image.BufferedImage;
  * TODO: (这里用一句话描述这个类的作用)
  */
 @Controller
+@Slf4j
 public class LoginController {
 
     @Autowired
@@ -28,14 +29,14 @@ public class LoginController {
         return "/admin/login";
     }
 
-    @GetMapping("doCaptcha.do")
+    @GetMapping("captcha.do")
     public void doCaptcha(HttpServletResponse httpServletResponse){
         String text = captchaProducer.createText();
         BufferedImage image = captchaProducer.createImage(text);
         try (ServletOutputStream outputStream = httpServletResponse.getOutputStream()){
             ImageIO.write(image,"jpg",outputStream);
         }catch (Exception e){
-            e.printStackTrace();
+        log.error("验证码生成失败");
         }
     }
 }
