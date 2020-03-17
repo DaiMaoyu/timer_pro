@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <link rel="stylesheet" href="/admin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="${basePath}/admin/layui/css/layui.css" media="all">
     <style>
         html, body {width: 100%;height: 100%;overflow: hidden}
         body {background: #009688;}
@@ -47,7 +47,7 @@
                     <label class="layui-icon layui-icon-vercode" for="captcha"></label>
                     <input type="text" name="captcha" lay-verify="required|captcha" placeholder="图形验证码" autocomplete="off" class="layui-input verification captcha" value="xszg">
                     <div class="captcha-img" style="cursor: pointer">
-                        <img id="captchaPic" src="/admin/timer/captcha.do" onclick="this.src='/admin/timer/captcha.do?random='+Math.random()">
+                        <img id="captchaPic" src="${adminPath}/captcha.do" onclick="this.src='${adminPath}/captcha.do?random='+Math.random()">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -60,10 +60,11 @@
         </div>
     </div>
 </div>
-<script src="/common/js/jq.js" charset="utf-8"></script>
-<script src="/admin/layui/layui.js" charset="utf-8"></script>
-<script src="/admin/js/jquery.particleground.min.js" charset="utf-8"></script>
+<script src="${basePath}/common/js/jq.js" charset="utf-8"></script>
+<script src="${basePath}/admin/layui/layui.js" charset="utf-8"></script>
+<script src="${basePath}/admin/js/jquery.particleground.min.js" charset="utf-8"></script>
 <script>
+    alert(aaaa)
     layui.use(['form'], function () {
         var form = layui.form,
             layer = layui.layer;
@@ -72,12 +73,12 @@
         if (top.location != self.location) top.location = self.location;
 
         // 粒子线条背景
-        $(document).ready(function(){
+ /*       $(document).ready(function(){
             $('.layui-container').particleground({
                 dotColor:'#5cbdaa',
                 lineColor:'#5cbdaa'
             });
-        });
+        });*/
 
         // 进行登录操作
         form.on('submit(login)', function (data) {

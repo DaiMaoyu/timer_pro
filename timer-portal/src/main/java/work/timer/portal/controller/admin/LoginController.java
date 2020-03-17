@@ -31,6 +31,7 @@ public class LoginController {
 
     @GetMapping("captcha.do")
     public void doCaptcha(HttpServletResponse httpServletResponse){
+        System.out.println("test");
         String text = captchaProducer.createText();
         BufferedImage image = captchaProducer.createImage(text);
         try (ServletOutputStream outputStream = httpServletResponse.getOutputStream()){
@@ -39,4 +40,5 @@ public class LoginController {
         log.error("验证码生成失败");
         }
     }
+
 }
