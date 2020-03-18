@@ -23,9 +23,10 @@ public class TimerViewResolver extends FreeMarkerView {
         log.info(requestURI);
         log.info(contextPath);
         log.info(servletPath);
-        model.put("basePath",contextPath);
+
         if (requestURI.contains(ADMIN_PATH)){
-            model.put("adminPath",contextPath+servletPath);
+            model.put("adminPath",contextPath + servletPath);
         }
+        model.put("basePath",contextPath);
     }
 }
