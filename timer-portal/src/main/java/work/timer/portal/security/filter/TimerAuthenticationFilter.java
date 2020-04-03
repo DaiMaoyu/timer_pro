@@ -2,6 +2,7 @@ package work.timer.portal.security.filter;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import work.timer.context.foundation.Result;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -17,10 +18,10 @@ public class TimerAuthenticationFilter extends FormAuthenticationFilter {
 
     @Override
     protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
+        Thread.sleep(2000);
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=UTF-8");
-        response.getWriter().write(JSON.toJSONString("密码错误"));
-
+        response.getWriter().write(JSON.toJSONString(Result.success("登录成功")));
         return false;
     }
 
